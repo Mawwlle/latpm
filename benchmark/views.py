@@ -1,6 +1,6 @@
 from rest_framework import mixins, viewsets
 
-from benchmark.models import Benchmark
+from benchmark.models import BenchmarkModel
 from benchmark.serializers import BenchmarkSerializer
 
 
@@ -11,4 +11,4 @@ class BenchmarkViewSet(
     viewsets.GenericViewSet,
 ):
     serializer_class = BenchmarkSerializer
-    queryset = Benchmark.objects.all()
+    queryset = BenchmarkModel.objects.all()

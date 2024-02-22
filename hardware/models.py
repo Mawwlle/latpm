@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class CPUInfo(models.Model):
+class CPUInfoModel(models.Model):
     name = models.CharField(max_length=200, unique=True)
     frequency = models.FloatField()
     arch = models.CharField(max_length=10)
@@ -20,13 +20,13 @@ class CPUInfo(models.Model):
         return f"{self.name}"
 
 
-class CPUMonitoring(models.Model):
-    cpu = models.ForeignKey(CPUInfo, on_delete=models.CASCADE)
+class CPUMonitoringModel(models.Model):
+    cpu = models.ForeignKey(CPUInfoModel, on_delete=models.CASCADE)
     frequency_actual = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-class GPUInfo(models.Model):
+class GPUInfoModel(models.Model):
     name = models.CharField(max_length=100, unique=True)
     memory = models.IntegerField()
 
@@ -34,9 +34,9 @@ class GPUInfo(models.Model):
         return f"{self.name} - {self.memory}"
 
 
-class Computer(models.Model):
-    cpu = models.ForeignKey(CPUInfo, on_delete=models.CASCADE)
-    gpu = models.ForeignKey(GPUInfo, on_delete=models.CASCADE, null=True)
+class ComputerModel(models.Model):
+    cpu = models.ForeignKey(CPUInfoModel, on_delete=models.CASCADE)
+    gpu = models.ForeignKey(GPUInfoModel, on_delete=models.CASCADE, null=True)
 
     def __str__(self) -> str:
         return f"Computer with CPU: {self.cpu.name} and GPU: {getattr(self.gpu, 'name', 'N/A')}"

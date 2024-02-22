@@ -32,4 +32,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("hardware.urls")),
     path("", include("benchmark.urls")),
+    path("", include("file.urls")),
 ]

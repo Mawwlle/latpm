@@ -1,31 +1,32 @@
 from rest_framework import serializers
 
-from hardware.models import Computer, CPUInfo, CPUMonitoring, GPUInfo
+from hardware.models import (ComputerModel, CPUInfoModel, CPUMonitoringModel,
+                             GPUInfoModel)
 
 
 class CPUInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CPUInfo
+        model = CPUInfoModel
         fields = "__all__"
         read_only_fields = ["id"]
 
 
 class CPUMonitoringSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CPUMonitoring
+        model = CPUMonitoringModel
         fields = "__all__"
         read_only_fields = ["id"]
 
 
 class GPUInfoSerializer(serializers.Serializer):
     class Meta:
-        model = GPUInfo
+        model = GPUInfoModel
         fields = "__all__"
         read_only_fields = ["id"]
 
 
 class ComputerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Computer
+        model = ComputerModel
         fields = "__all__"
         read_only_fields = ["id"]

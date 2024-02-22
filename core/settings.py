@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django_filters",
     "hardware",
     "benchmark",
+    "file",
 ]
 
 MIDDLEWARE = [

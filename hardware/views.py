@@ -1,6 +1,7 @@
 from rest_framework import generics, mixins, viewsets
 
-from hardware.models import Computer, CPUInfo, CPUMonitoring, GPUInfo
+from hardware.models import (ComputerModel, CPUInfoModel, CPUMonitoringModel,
+                             GPUInfoModel)
 from hardware.serializers import (ComputerSerializer, CPUInfoSerializer,
                                   CPUMonitoringSerializer, GPUInfoSerializer)
 
@@ -12,24 +13,24 @@ class ComputerViewSet(
     viewsets.GenericViewSet,
 ):
     serializer_class = ComputerSerializer
-    queryset = Computer.objects.all()
+    queryset = ComputerModel.objects.all()
 
 
 class CPUMonitoringViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
     serializer_class = CPUMonitoringSerializer
-    queryset = CPUMonitoring.objects.all()
+    queryset = CPUMonitoringModel.objects.all()
 
 
 class CPUInfoViewSet(
     mixins.CreateModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     serializer_class = CPUInfoSerializer
-    queryset = CPUInfo.objects.all()
+    queryset = CPUInfoModel.objects.all()
 
 
 class CPUInfoRetrieveView(generics.RetrieveAPIView):
     serializer_class = CPUInfoSerializer
-    queryset = CPUInfo.objects.all()
+    queryset = CPUInfoModel.objects.all()
     lookup_field = "name"
 
 
@@ -40,4 +41,4 @@ class GPUInfoViewSet(
     viewsets.GenericViewSet,
 ):
     serializer_class = GPUInfoSerializer
-    queryset = GPUInfo.objects.all()
+    queryset = GPUInfoModel.objects.all()

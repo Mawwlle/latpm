@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from benchmark.models import Benchmark
+from benchmark.models import BenchmarkModel
 
-admin.site.register(Benchmark)
+admin.site.register(BenchmarkModel)

@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Benchmark(models.Model):
+class BenchmarkModel(models.Model):
     class Type(models.TextChoices):
         MULTIPROCESSING = "MP", "Multiprocessing"
         TORCH_TENSOR_OPERATIONS = "TTO", "Torch tensor operations"
@@ -13,4 +13,4 @@ class Benchmark(models.Model):
     )
     threads = models.PositiveIntegerField(default=1)
     result = models.FloatField()
-    computer = models.ForeignKey(to="hardware.Computer", on_delete=models.CASCADE)
+    computer = models.ForeignKey(to="hardware.ComputerModel", on_delete=models.CASCADE)
